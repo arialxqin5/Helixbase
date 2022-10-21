@@ -33,6 +33,14 @@
           "$ref": "#/definitions/SerializationRootConfiguration"
         }
       ]
+    },
+    "settings": {
+      "description": "Cli settings",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/Settings"
+        }
+      ]
     }
   },
   "definitions": {
@@ -56,6 +64,11 @@
           "description": "Specifies remove orphans functionality for roles serialization",
           "default": true
         },
+        "continueOnItemFailure": {
+          "type": "boolean",
+          "description": "Specifies behavior when item synchronization fails",
+          "default": false
+        },
         "excludedFields": {
           "type": "array",
           "description": "Configure base fields filter",
@@ -74,6 +87,22 @@
         },
         "description": {
           "type": "string"
+        }
+      }
+    },
+    "Settings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "telemetryEnabled": {
+          "type": "boolean",
+          "description": "Determines if telemetry is enabled in cli.",
+          "default": false
+        },
+        "versionComparingEnabled": {
+          "type": "boolean",
+          "description": "Determines if CLI\\SMS version comparing is enabled.",
+          "default": true
         }
       }
     }
